@@ -1,8 +1,9 @@
 # adventofcode2022
 
-## Тут в файлы буду выкладывать мои решения задачек с мероприятия   
+## Тут в файлы буду выкладывать мои решения задачек с мероприятия  
+
 ```
---- Day 1: Calorie Counting --- 
+Day 1: Calorie Counting
 Santa's reindeer typically eat regular reindeer food, but they need a lot  
 of magical energy to deliver presents on Christmas. For that, their favorite 
 snack is a special type of star fruit that only grows deep in the jungle.  
@@ -63,7 +64,10 @@ by the fourth Elf).
 
 Find the Elf carrying the most Calories. How many total Calories is that  
 Elf carrying?
-
+```
+[Решение не сохранил( лень, не хочу опять писать](https://github.com/user/repo/blob/branch/other_file.md)  
+____
+```
 --- Part Two ---
 By the time you calculate the answer to the Elves' question, they've already 
 realized that the Elf carrying the most Calories of food might eventually run 
@@ -81,7 +85,9 @@ is 45000.
 
 Find the top three Elves carrying the most Calories. How many Calories are 
 those Elves carrying in total?
-
+```  
+[Решение не сохранил( лень, не хочу опять писать](https://github.com/user/repo/blob/branch/other_file.md)  
+----
 --- Day 2: Rock Paper Scissors ---
 The Elves begin to set up camp on the beach. To decide whose tent gets to be 
 closest to the snack storage, a giant Rock Paper Scissors tournament is already 
