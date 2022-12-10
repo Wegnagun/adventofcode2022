@@ -595,6 +595,6 @@ examples:
 How many characters need to be processed before the first start-of-message 
 marker is detected?
 ```  
-[notyet](https://github.com/Wegnagun/adventofcode2022/blob/main/day_6/day_6_first_part.py)  
+[Решение](https://github.com/Wegnagun/adventofcode2022/blob/main/day_6/day_6_second_part.py)  
 [To the list ^](#list)  
 ____  
