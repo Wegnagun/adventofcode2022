@@ -344,4 +344,5 @@ So, in this example, the number of overlapping assignment pairs is 4.
 
 In how many assignment pairs do the ranges overlap?
 ```  
-poka bez resheniya...
+[Решение](https://github.com/Wegnagun/adventofcode2022/blob/main/day_4/day_4_second_part.py)  
+____  
