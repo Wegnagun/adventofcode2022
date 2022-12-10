@@ -3,20 +3,14 @@ def load_data(file):  # Достаем вводные данные.
         return file.read()
 
 
-def main():
-    start_index_packet = 0
-    packet = ''
+def main() -> int:
     message = load_data('data.txt')
     for index in range(len(message)):
-        if message[index] in packet:
-            packet = "" + message[index]
-            start_index_packet = index + 1
-        else:
-            start_index_packet = index + 1
-            packet += message[index]
-        if len(packet) == 4:
-            break
-    return start_index_packet
+        if (
+            len(message[index: index + 4])
+            == len(set(message[index: index + 4]))
+        ):
+            return index + 4
 
 
 if __name__ == '__main__':
