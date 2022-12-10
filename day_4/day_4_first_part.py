@@ -3,7 +3,7 @@ def get_range_list(data):
         [
             list(map(int, num.split('-'))) for num in pairs.split(',')
         ]
-        for pairs in data      # еба, закрутил =D
+        for pairs in data      # да уж =D
     ]
     return range_list
 
@@ -16,21 +16,18 @@ def load_data(file):  # Достаем вводные данные.
 
 def main():
     count = 0
-    data = load_data('ttt.txt')
+    data = load_data('data.txt')
     range_list = get_range_list(data)
-    print(range_list)
-    for index in range(1, len(range_list)):
-        for i in range_list[index]:
-            print(i)
-    #         if (
-    #             range_list[index - 1][0] <= left >= range_list[index][-1]
-    #             and range_list[index - 1][0] <= right >= range_list[index][-1]
-    #         ):
-    #             count += 1
-    # print(count)
+    for index in range(0, len(range_list)):
+        pair = range_list[index]
+        if (
+            (pair[0][0] >= pair[1][0] and pair[0][1] <= pair[1][1])
+            or (pair[1][0] >= pair[0][0] and pair[1][1] <= pair[0][1])
+        ):
+            count += 1
+    return count
 
 
 if __name__ == '__main__':
-    main()
-
-# print(f'сумма приоритетов такова: {result}')
+    result = main()
+    print(f'Количество входящих в друг друга =) пар: {result}')
