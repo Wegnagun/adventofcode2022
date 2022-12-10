@@ -8,6 +8,7 @@
 - [Day 3](#day-3)
 - [Day 4](#day-4)
 - [Day 5](#day-5)
+- [Day 6](#day-6)
 
 # Day 1
 ```
@@ -510,6 +511,8 @@ Elves know where they should stand to be ready to unload the final supplies.
 After the rearrangement procedure completes, what crate ends up on top of each 
 stack?
 ```  
-[not yet](https://github.com/Wegnagun/adventofcode2022/blob/main/day_5/day_5_first_part.py)  
+[Решение](https://github.com/Wegnagun/adventofcode2022/blob/main/day_5/day_5_second_part.py)  
 [To the list ^](#list)  
 ____  
+# Day 6  
+```  
