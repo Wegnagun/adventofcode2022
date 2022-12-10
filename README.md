@@ -2,8 +2,15 @@
 
 ## Тут в файлы буду выкладывать мои решения задачек с мероприятия  
 
+- [День 1](#Day1)
+- [День 2](#Day2)
+- День 3
+- День 4
+
+#Day1
 ```
-Day 1: Calorie Counting
+"Calorie Counting"
+
 Santa's reindeer typically eat regular reindeer food, but they need a lot  
 of magical energy to deliver presents on Christmas. For that, their favorite 
 snack is a special type of star fruit that only grows deep in the jungle.  
@@ -88,6 +95,7 @@ those Elves carrying in total?
 ```  
 [Решение](https://github.com/Wegnagun/adventofcode2022/blob/main/day_1/day_1_second_part.py)  
 ____
+#Day 2
 ```  
 --- Day 2: Rock Paper Scissors ---
 The Elves begin to set up camp on the beach. To decide whose tent gets to be 
