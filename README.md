@@ -178,6 +178,7 @@ Following the Elf's instructions for the second column, what would your total
 score be if everything goes exactly according to your strategy guide?
 ```  
 [Решение](https://github.com/Wegnagun/adventofcode2022/blob/main/day_2/day_2_second_part.py)  
+[To the list ^](#list)  
 ____  
 # Day 3
 ```
@@ -235,6 +236,7 @@ Find the item type that appears in both compartments of each rucksack.
 What is the sum of the priorities of those item types?
 ```  
 [Решение](https://github.com/Wegnagun/adventofcode2022/blob/main/day_3/day_3_first_part.py)  
+[To the list ^](#list)  
 ____  
 ```
 --- Part Two ---
@@ -280,6 +282,7 @@ Find the item type that corresponds to the badges of each three-Elf group.
 What is the sum of the priorities of those item types?
 ```  
 [Решение](https://github.com/Wegnagun/adventofcode2022/blob/main/day_3/day_3_second_part.py)  
+[To the list ^](#list)  
 ____  
 # Day 4
 ```
@@ -341,6 +344,7 @@ example, there are 2 such pairs.
 In how many assignment pairs does one range fully contain the other?
 ```  
 [Решение](https://github.com/Wegnagun/adventofcode2022/blob/main/day_4/day_4_first_part.py)  
+[To the list ^](#list)  
 ```
 --- Part Two ---
 
@@ -361,4 +365,5 @@ So, in this example, the number of overlapping assignment pairs is 4.
 In how many assignment pairs do the ranges overlap?
 ```  
 [Решение](https://github.com/Wegnagun/adventofcode2022/blob/main/day_4/day_4_second_part.py)  
+[To the list ^](#list)  
 ____  
