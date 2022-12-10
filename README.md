@@ -2,10 +2,11 @@
 
 ## Тут в файлы буду выкладывать мои решения задачек с мероприятия  
 
+### List:
 - [Day 1](#day-1)
 - [Day 2](#day-2)
-- День 3
-- День 4
+- [Day 3](#day-3)
+- [Day 4](#day-4)
 
 # Day 1
 ```
@@ -94,6 +95,7 @@ Find the top three Elves carrying the most Calories. How many Calories are
 those Elves carrying in total?
 ```  
 [Решение](https://github.com/Wegnagun/adventofcode2022/blob/main/day_1/day_1_second_part.py)  
+[To the list ^](#list)  
 ____
 # Day 2
 ```  
@@ -149,6 +151,7 @@ What would your total score be if everything goes exactly according to your
 strategy guide?
 ```  
 [Решение](https://github.com/Wegnagun/adventofcode2022/blob/main/day_2/day_2_first_part.py)  
+[To the list ^](#list)  
 ____
 ```  
 --- Part Two ---
@@ -176,6 +179,7 @@ score be if everything goes exactly according to your strategy guide?
 ```  
 [Решение](https://github.com/Wegnagun/adventofcode2022/blob/main/day_2/day_2_second_part.py)  
 ____  
+# Day 3
 ```
 --- Day 3: Rucksack Reorganization ---
 One Elf has the important job of loading all of the rucksacks with supplies 
@@ -277,6 +281,7 @@ What is the sum of the priorities of those item types?
 ```  
 [Решение](https://github.com/Wegnagun/adventofcode2022/blob/main/day_3/day_3_second_part.py)  
 ____  
+# Day 4
 ```
 --- Day 4: Camp Cleanup ---
 Space needs to be cleared before the last supplies can be unloaded from the 
