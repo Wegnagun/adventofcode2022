@@ -1,29 +1,32 @@
 class Commands:
     def __init__(self):
-        self.current_dir = ['Wegnagun/']
-        self.system = {'Wegnagun/': {}}
+        self.current_dir = ['Wegnagun/']   # глубина нахождения в дирректории
+        self.system = ['Wegnagun/', []]
 
     def cd(self, dir_name):
-        self.current_dir.append(dir_name)
+        self.current_dir.append(dir_name)  # добавляем дирректорию в очередь дирректорий
         print(
             f'Перемещаемся из дирректории "{self.current_dir[-2]}" '
-            f'в дирректорию "{dir_name}"'
+            f'в дирректорию "{dir_name}" dir {self.current_dir}'
         )
-        self.system[self.current_dir[-2]] = {self.current_dir[-1]: []}
+        self.system[self.nesting_count].append([self.current_dir[-1], []])
         print(self.system)
 
     def cd_up(self):
         print(
             f'Перемещаемся из дирректории "{self.current_dir[-1]}" '
-            f'назад дирректорию "{self.current_dir[-2]}"'
+            f'назад дирректорию "{self.current_dir[-2]}" dir {self.current_dir}'
         )
         self.current_dir.pop()
 
     def ls(self, command):
-        print(f'Внутри {command}')
-        for i in command:
-            if i == 'dir':
-                self.system['Wegnagun/'] = {self.current_dir[-1]: []}
+        # print(f'Внутри {command}')
+        # for i in command:
+        #     if i[0] == 'dir':
+        #         self.system[self.current_dir[-2][-1]] = {i[1]: {}}
+        #     elif i[0].isdigit():
+        #         self.system[self.current_dir[-2][-1]] = (int(i[0]), i[1])
+        pass
 
     def show(self):
         return self.system
