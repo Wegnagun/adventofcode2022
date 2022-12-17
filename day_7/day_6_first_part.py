@@ -1,66 +1,96 @@
-class Commands:
-    def __init__(self):
-        self.current_dir = ['Wegnagun/']   # глубина нахождения в дирректории
-        self.system = ['Wegnagun/', []]
+from typing import Type
 
-    def cd(self, dir_name):
-        self.current_dir.append(dir_name)  # добавляем дирректорию в очередь дирректорий
-        print(
-            f'Перемещаемся из дирректории "{self.current_dir[-2]}" '
-            f'в дирректорию "{dir_name}" dir {self.current_dir}'
+
+class Directory:
+    def __init__(self, name: str, parent: Type['Directory'] | None = None):
+        self.name = name
+        self.parent = parent
+        self.children: list[Type['Directory'] | Type["File"]] = []
+
+    def add_child(self, child: Type['Directory'] | Type["File"]):
+        self.children.append(child)
+
+    def get_path(self) -> str:
+        if self.parent is None:
+            return self.name
+        parent = self.parent.get_path()
+        if parent != '/':
+            return f'/{self.name}'
+
+    def get_child(self, name: str) -> Type["Directory"] | Type["File"]:
+        for child in self.children:
+            if child.name == name:
+                return child
+        raise ValueError(f'Child {name} не найден')
+
+    def total_size(self, size_cache: dict[str, int] | None = None) -> int:
+        curr_path = self.get_path()
+        total_size = sum(
+            child.total_size(size_cache) if isinstance(child, Directory)
+            else child.size for child in self.children
         )
-        self.system[self.nesting_count].append([self.current_dir[-1], []])
-        print(self.system)
+        if size_cache is not None:
+            size_cache[curr_path] = total_size
+        return total_size
 
-    def cd_up(self):
-        print(
-            f'Перемещаемся из дирректории "{self.current_dir[-1]}" '
-            f'назад дирректорию "{self.current_dir[-2]}" dir {self.current_dir}'
-        )
-        self.current_dir.pop()
-
-    def ls(self, command):
-        # print(f'Внутри {command}')
-        # for i in command:
-        #     if i[0] == 'dir':
-        #         self.system[self.current_dir[-2][-1]] = {i[1]: {}}
-        #     elif i[0].isdigit():
-        #         self.system[self.current_dir[-2][-1]] = (int(i[0]), i[1])
-        pass
-
-    def show(self):
-        return self.system
+    def __repr__(self):
+        return f'{self.name} (dir)'
 
 
-def load_data(file: str) -> list:  # Достаем вводные данные.
+class File:
+    def __init__(self, name: str, parent: Type["Directory"], size: int):
+        self.name = name
+        self.parent = parent
+        self.size = size
+
+    def get_path(self) -> str:
+        return f"{self.parent.get_path()}/{self.name}"
+
+    def __repr__(self):
+        return f"{self.name} (file, size={self.size})"
+
+
+def calculate_directory_size(
+    root: Directory, size_cache: dict[str, int] | None = None
+) -> dict[str, int]:
+    if size_cache is None:
+        size_cache = {}
+    if root.get_path() in size_cache:
+        return size_cache
+    root.total_size(size_cache)
+    return size_cache
+
+
+def load_data(file: str) -> Directory:  # Достаем вводные данные.
     with open(file) as file:
-        lines = [line.rstrip().split() for line in file]
-        return lines
+        lines = file.read().strip().split("\n")
+    root: Type[Directory] = Directory("/")
+    current_directory = root
+    for line in lines:
+        match line.split():
+            case ["$", "ls"]:
+                continue
+            case ["$", "cd", ".."]:
+                current_directory = current_directory.parent
+            case ["$", "cd", "/"]:
+                current_directory = root
+            case ["$", "cd", directory] if directory != "/":
+                current_directory = current_directory.get_child(directory)
+            case ["dir", directory]:
+                current_directory.add_child(Directory(directory, current_directory))
+            case [size, filename]:
+                current_directory.add_child(
+                    File(filename, current_directory, int(size))
+                )
+    return root
 
 
 def main():
-    dir = Commands()
-    current_dir = None
-    print(load_data('ttt.txt'))
-    commands = load_data('ttt.txt')
-    print('=' * 100)
-    for command in commands:
-        if command[0] == '$':
-            print(f'комманда: {command}')
-            if command[1] == 'cd':
-                if command[2] == '..':
-                    dir.cd_up()
-                    continue
-                dir.cd(command[2])
-                continue
-        else:
-            dir.ls(command)
-            continue
-        # print(command)
-    print('=' * 100)
-    print(dir.show())
+    root = load_data('ttt.txt')
+    dir_sizes = calculate_directory_size(root)
+    return sum([size for size in dir_sizes.values() if size < 100000])
 
 
 if __name__ == '__main__':
     result = main()
-    # print(f'Надо обработать {result} символов а надо 3263')
+    print(f'Сумма дирректорий: {result}')
